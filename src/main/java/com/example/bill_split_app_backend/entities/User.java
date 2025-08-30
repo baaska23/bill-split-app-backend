@@ -18,7 +18,7 @@ public class User {
     private String username;
     private String email;
     private String hashed_password;
-    private Double balance;
+    private Double balance = 0.0;
     
     @CreationTimestamp
     private Instant created_at;

@@ -3,9 +3,8 @@ package com.example.bill_split_app_backend.controllers;
 import com.example.bill_split_app_backend.entities.User;
 import com.example.bill_split_app_backend.entities.UserProfile;
 import com.example.bill_split_app_backend.services.UserService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,5 +25,11 @@ public class UserController {
     @GetMapping("/user-profiles")
     public List<UserProfile> getUserProfiles() {
         return userService.getUserProfiles();
+    }
+    
+    @PostMapping("/users")
+    public ResponseEntity<User> saveUser(@RequestBody User user) {
+        User savedUser = userService.saveUserData(user);
+        return ResponseEntity.ok(savedUser);
     }
 }

@@ -25,4 +25,8 @@ public class UserService {
     public List<UserProfile> getUserProfiles() {
         return userProfileRepository.findAll();
     }
+    
+    public User saveUserData(User user) {
+        return userRepository.save(user);
+    }
 }
